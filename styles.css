@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #ff5722;
+    background-color: #FF5733;
     color: white;
     text-align: center;
     padding: 20px;
@@ -63,11 +63,11 @@ header h1 {
 
 .price {
     font-weight: bold;
-    color: #ff5722;
+    color: #FF5733;
 }
 
 .order-btn {
-    background-color: #ff5722;
+    background-color: #FF5733;
     color: white;
     border: none;
     padding: 10px;
@@ -78,7 +78,7 @@ header h1 {
 }
 
 .order-btn:hover {
-    background-color: #e64a19;
+    background-color:  #FF5733;
 }
 
 /* Order Section */
@@ -114,7 +114,7 @@ header h1 {
 /* Footer */
 footer {
     text-align: center;
-    background-color: #ff5722;
+    background-color: #FF5733 ;
     color: white;
     padding: 10px;
     position: fixed;
