@@ -5,12 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Delivery</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styling for header, logo, and h1 */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .logo img {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%; /* To make the logo circular */
+        }
+        h1 {
+            margin-left: 20px; /* Adds space between the logo and text */
+            font-size: 2.5rem;
+        }
+        .tracking-btn, .contact-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .tracking-btn:hover, .contact-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>Foodie's Delight</h1>
+            <img src="Logo Food.webp" alt="Foodie's Delight Logo">
         </div>
+        <h1>Foodie's Delight</h1>
     </header>
 
     <main>
@@ -32,32 +64,8 @@
         <!-- Menu Section -->
         <section class="menu" id="menu-section" style="display: none;">
             <h2>Menu</h2>
-            <div class="menu-items">
-                <!-- Menu Items -->
-                <div class="menu-item">
-                    <h3>Pizza</h3>
-                    <p>Delicious cheese pizza with a crispy crust.</p>
-                    <span class="price">₹280</span>
-                    <button class="order-btn" data-item="Pizza" data-price="240">Order Now</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Burger</h3>
-                    <p>Juicy beef burger with fresh veggies.</p>
-                    <span class="price">₹190</span>
-                    <button class="order-btn" data-item="Burger" data-price="160">Order Now</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Pasta</h3>
-                    <p>Creamy Alfredo pasta with mushrooms.</p>
-                    <span class="price">₹190</span>
-                    <button class="order-btn" data-item="Pasta" data-price="200">Order Now</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Salad</h3>
-                    <p>Fresh garden salad with house dressing.</p>
-                    <span class="price">₹190</span>
-                    <button class="order-btn" data-item="Salad" data-price="140">Order Now</button>
-                </div>
+            <div class="menu-items" id="menu-items">
+                <!-- Menu items will be dynamically added here -->
             </div>
         </section>
 
@@ -68,7 +76,25 @@
                 <p id="order-details">No items ordered yet.</p>
                 <p id="total-price">Total: ₹0</p>
             </div>
+
+            <!-- Payment Methods -->
+            <h3>Payment Method</h3>
+            <select id="payment-method">
+                <option value="COD">Cash on Delivery</option>
+                <option value="Online">Online Payment</option>
+            </select>
+
+            <!-- Address input -->
+            <h3>Delivery Address</h3>
+            <input type="text" id="delivery-address" placeholder="Enter your address">
+
             <button id="place-order-btn" class="place-order-btn">Place Order</button>
+
+            <!-- Google Maps Tracking Button -->
+            <button id="track-order-btn" class="tracking-btn" style="display: none;">Track Your Order</button>
+
+            <!-- Contact Us Button -->
+            <button id="contact-us-btn" class="contact-btn">Contact Us</button>
         </section>
     </main>
 
