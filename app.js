@@ -38,12 +38,10 @@ const menus = {
     ],
     "TAS Mess": [
         { name: "Rice & Sambar", price: 70 },
-        { name: "Rasam", price: 45},
+        { name: "Lemon Rice", price: 45 },
         { name: "Curd Rice", price: 45 }
     ]
 };
-    // Add other restaurant menus here...
-
 
 // Function to update order details
 function updateOrderDetails() {
@@ -60,39 +58,41 @@ function updateOrderDetails() {
 }
 
 // Add event listeners to restaurant selection
-const restaurantSelect = document.getElementById('restaurant-select');
+const restaurantList = document.getElementById('restaurant-list');
 const menuSection = document.getElementById('menu-section');
 const menuItems = document.getElementById('menu-items');
 
-restaurantSelect.addEventListener('change', () => {
-    const selectedRestaurant = restaurantSelect.value;
-    menuItems.innerHTML = ''; // Clear previous menu
+restaurantList.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+        const selectedRestaurant = event.target.getAttribute('data-restaurant');
+        menuItems.innerHTML = ''; // Clear previous menu
 
-    if (selectedRestaurant !== "") {
-        const restaurantMenu = menus[selectedRestaurant];
+        if (selectedRestaurant) {
+            const restaurantMenu = menus[selectedRestaurant];
 
-        restaurantMenu.forEach(item => {
-            const menuItem = document.createElement('div');
-            menuItem.className = 'menu-item';
-            menuItem.innerHTML = `
-                <h3>${item.name}</h3>
-                <p>Delicious ${item.name}.</p>
-                <span class="price">₹${item.price}</span>
-                <button class="order-btn" data-item="${item.name}" data-price="${item.price}">Order Now</button>
-            `;
-            menuItems.appendChild(menuItem);
+            restaurantMenu.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                menuItem.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>Delicious ${item.name}.</p>
+                    <span class="price">₹${item.price}</span>
+                    <button class="order-btn" data-item="${item.name}" data-price="${item.price}">Order Now</button>
+                `;
+                menuItems.appendChild(menuItem);
 
-            // Add event listener to the "Order Now" button
-            menuItem.querySelector('.order-btn').addEventListener('click', () => {
-                order.push({ name: item.name, price: item.price });
-                totalPrice += item.price;
-                updateOrderDetails();
+                // Add event listener to the "Order Now" button
+                menuItem.querySelector('.order-btn').addEventListener('click', () => {
+                    order.push({ name: item.name, price: item.price });
+                    totalPrice += item.price;
+                    updateOrderDetails();
+                });
             });
-        });
 
-        menuSection.style.display = "block";
-    } else {
-        menuSection.style.display = "none";
+            menuSection.style.display = "block";
+        } else {
+            menuSection.style.display = "none";
+        }
     }
 });
 
@@ -108,7 +108,7 @@ placeOrderButton.addEventListener('click', () => {
     } else if (deliveryAddress === "") {
         alert('Please enter your delivery address.');
     } else {
-        alert(`Thank you for your order from ${restaurantSelect.value}!\nPayment: ${paymentMethod}\nAddress: ${deliveryAddress}`);
+        alert(`Thank you for your order from ${restaurantList.querySelector('li[data-restaurant]').textContent}!\nPayment: ${paymentMethod}\nAddress: ${deliveryAddress}`);
         order = [];
         totalPrice = 0;
         updateOrderDetails();
@@ -124,11 +124,8 @@ trackOrderButton.addEventListener('click', () => {
     window.open(googleMapsUrl, '_blank');
 });
 
-// Contact Us button functionality
+// Contact Us button functionality (just an alert for now)
 const contactUsButton = document.getElementById('contact-us-btn');
 contactUsButton.addEventListener('click', () => {
-    alert('For assistance, please contact Foodie\'s Delight at:\nPhone: +1234567890\nEmail: support@foodiesdelight.com');
+    alert('For inquiries, please contact us at: contact@foodiesdelight.com');
 });
-
-// Initialize the order details display
-updateOrderDetails();
