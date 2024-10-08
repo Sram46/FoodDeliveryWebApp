@@ -5,39 +5,41 @@ let totalPrice = 0;
 // Menus for each restaurant
 const menus = {
     "Udhaya's Hotel": [
-        { name: "Idli", price: 40 },
-        { name: "Dosa", price: 50 },
-        { name: "Vada", price: 30 }
+        { name: "Idli", price: 10 },
+        { name: "Dosa", price: 35 },
+        { name: "Vada", price: 10 }
     ],
     "Red Rose": [
-        { name: "Pizza", price: 240 },
-        { name: "Pasta", price: 200 },
-        { name: "Burger", price: 160 }
+        { name: "Pizza", price: 280 },
+        { name: "Pasta", price: 190 },
+        { name: "Burger", price: 150 }
     ],
     "Dosa Corner": [
-        { name: "Masala Dosa", price: 70 },
-        { name: "Rava Dosa", price: 80 },
-        { name: "Onion Dosa", price: 90 }
+        { name: "Masala Dosa", price: 50 },
+        { name: "Rava Dosa", price: 45 },
+        { name: "Plain Dosa", price: 20 },
+        { name: "Paneer Dosa", price: 30 },
+        { name: "Onion Dosa", price: 40 }
     ],
     "Jeevan Restaurant": [
         { name: "Veg Thali", price: 150 },
-        { name: "Paneer Butter Masala", price: 200 },
-        { name: "Naan", price: 30 }
+        { name: "Paneer Butter Masala", price: 100 },
+        { name: "Naan", price: 45 }
     ],
     "7/11 Restaurant": [
-        { name: "Chicken Biryani", price: 180 },
-        { name: "Mutton Biryani", price: 220 },
-        { name: "Fish Curry", price: 160 }
+        { name: "Chicken Biryani", price: 250 },
+        { name: "Mutton Biryani", price: 280 },
+        { name: "Fish Curry", price: 130 }
     ],
     "Nila Hotel": [
         { name: "Chapathi", price: 40 },
-        { name: "Poori", price: 50 },
-        { name: "Parotta", price: 60 }
+        { name: "Poori", price: 40 },
+        { name: "Parotta", price: 30 }
     ],
     "TAS Mess": [
         { name: "Rice & Sambar", price: 70 },
-        { name: "Rasam", price: 40 },
-        { name: "Curd Rice", price: 50 }
+        { name: "Rasam", price: 45},
+        { name: "Curd Rice", price: 45 }
     ]
 };
     // Add other restaurant menus here...
